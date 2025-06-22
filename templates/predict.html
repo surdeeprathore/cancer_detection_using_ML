@@ -1,0 +1,81 @@
+<!-- templates/predict.html -->
+{% extends "index.html" %}
+{% block title %}Predict - Breast Cancer{% endblock %}
+
+{% block content %}
+<h2 class="text-center my-4">Breast Cancer Prediction</h2>
+
+<!-- Prediction Form -->
+<form action="/predict" method="POST" class="mb-4">
+  <div class="mb-3">
+    <label class="form-label">Input Breast Cancer Features (e.g., radius_mean, texture_mean, etc.)</label>
+    <input type="text" class="form-control" name="feature" placeholder="Example: 14.5, 20.1, 89.4, ...">
+  </div>
+  <button type="submit" class="btn btn-success">Predict</button>
+</form>
+
+<!-- Prediction Result -->
+{% if message %}
+  {% for i in message %}
+    <p class="mt-3 fs-5">{{ i }}</p>
+    {% if i == 'Not Cancrouse' %}
+      <div class="card my-3" style="width: 20rem;">
+        <img src="https://media.istockphoto.com/id/897593850/photo/breast-cancer-awareness.jpg?s=612x612&w=0&k=20&c=3LXjQ70IxjjnRsVhkKj8V0KP_mw-Lrp1dFS1Cg5nu8s=" class="card-img-top" alt="Healthy">
+        <div class="card-body">
+          <h5 class="card-title text-success">Not Cancrouse</h5>
+          <p class="card-text">Don't worry — you do not have breast cancer. Stay positive and maintain regular health checks!</p>
+        </div>
+      </div>
+    {% else %}
+      <div class="card my-3" style="width: 20rem;">
+        <img src="https://img1.wsimg.com/isteam/stock/wVVg2nx/:/cr=t:0%25,l:0%25,w:100%25,h:100%25" class="card-img-top" alt="Doctor Alert">
+        <div class="card-body">
+          <h5 class="card-title text-danger">Cancrouse</h5>
+          <p class="card-text">You may have breast cancer. Please consult a healthcare professional for further diagnosis.</p>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+<!-- Informative Sections -->
+<div class="my-5">
+  <h3 class="text-center mb-4">Learn More About Breast Cancer</h3>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <!-- Section 1 -->
+    <div class="col">
+      <div class="card h-100 bg-light text-dark shadow-sm">
+        <img src="https://bloom-obgyn.com/wp-content/uploads/2021/10/breast-cancer-reduce-risk.jpg" class="card-img-top" alt="Awareness">
+        <div class="card-body">
+          <h5 class="card-title">What is Breast Cancer?</h5>
+          <p class="card-text">A type of cancer that forms in the cells of the breast, often detected through screenings like mammograms.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="col">
+      <div class="card h-100 bg-light text-dark shadow-sm">
+        <img src="https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJvYXV0aCI6eyJjbGllbnRfaWQiOiJmcm9udGlmeS1leHBsb3JlciJ9LCJwYXRoIjoiaWhoLWhlYWx0aGNhcmUtYmVyaGFkXC9hY2NvdW50c1wvYzNcLzQwMDA2MjRcL3Byb2plY3RzXC8yMDlcL2Fzc2V0c1wvYTdcLzM3Mzg2XC8yNjQyZTUyZWViMDgyZTJjNjlmZjAwZDk4MjdjZDQ3Zi0xNjU4Mjk4OTU3LmpwZyJ9:ihh-healthcare-berhad:6iTW_nW7UjcIvYmrvErkXkqbrD3LawtUGJGRHrwV4X4?format=webp" class="card-img-top" alt="Prevention">
+        <div class="card-body">
+          <h5 class="card-title">How to Prevent It?</h5>
+          <p class="card-text">Healthy lifestyle choices such as regular exercise, avoiding alcohol, and early screenings can reduce risk.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="col">
+      <div class="card h-100 bg-light text-dark shadow-sm">
+        <img src="https://mammo.com/wp-content/uploads/2024/10/Leading-Innovation-in-Breast-Care-5.jpg" class="card-img-top" alt="AI Technology">
+        <div class="card-body">
+          <h5 class="card-title">Role of AI in Diagnosis</h5>
+          <p class="card-text">Machine learning models are increasingly used to detect patterns in breast cancer data to assist doctors.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

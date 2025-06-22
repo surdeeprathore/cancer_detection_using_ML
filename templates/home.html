@@ -1,0 +1,62 @@
+{% extends "index.html" %}
+
+{% block title %}Home - Breast Cancer{% endblock %}
+
+{% block content %}
+<!-- Welcome Header -->
+<div class="text-center my-4">
+  <h1 class="display-5 fw-bold">Welcome to the Breast Cancer Prediction System</h1>
+  <p class="lead">An AI-powered tool to help detect breast cancer early using machine learning techniques.</p>
+  <img src="https://max-website20-images.s3.ap-south-1.amazonaws.com/breast_cancer_early_detection_2d62d0f548.jpg" alt="Cancer Awareness" class="img-fluid rounded my-4" style="max-height: 300px; object-fit: cover;">
+</div>
+
+<!-- Feature Highlights with Icons -->
+<div class="row text-center g-4">
+  <div class="col-md-4">
+    <div class="card bg-light text-dark h-100 shadow">
+      <div class="card-body">
+        <i class="bi bi-heart-pulse-fill fs-1 text-danger"></i>
+        <h5 class="card-title mt-2">Early Detection</h5>
+        <p class="card-text">Identify potential signs of breast cancer early using predictive modeling based on patient data.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card bg-light text-dark h-100 shadow">
+      <div class="card-body">
+        <i class="bi bi-robot fs-1 text-primary"></i>
+        <h5 class="card-title mt-2">AI-Powered Analysis</h5>
+        <p class="card-text">Leverages machine learning algorithms trained on real diagnostic data for accurate predictions.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card bg-light text-dark h-100 shadow">
+      <div class="card-body">
+        <i class="bi bi-shield-check fs-1 text-success"></i>
+        <h5 class="card-title mt-2">Safe & Secure</h5>
+        <p class="card-text">User-friendly, secure, and designed to assist—not replace—medical professionals.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- How it Works Section -->
+<div class="my-5">
+  <h2 class="text-center mb-4">How It Works</h2>
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <img src="https://cytecare.com/wp-content/uploads/2022/12/breast-cancer-signs-symptoms.webp" alt="Diagnosis Process" class="img-fluid rounded shadow">
+    </div>
+    <div class="col-md-6">
+      <ul class="list-group list-group-flush bg-light text-dark">
+        <li class="list-group-item"><i class="bi bi-1-circle-fill text-primary"></i> Enter the input features (e.g., radius, texture, area, etc.)</li>
+        <li class="list-group-item"><i class="bi bi-2-circle-fill text-success"></i> Our ML model processes the data in real-time</li>
+        <li class="list-group-item"><i class="bi bi-3-circle-fill text-danger"></i> Get a result indicating the likelihood of cancer</li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

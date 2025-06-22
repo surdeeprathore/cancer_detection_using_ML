@@ -1,0 +1,74 @@
+<!-- templates/about.html -->
+{% extends "index.html" %}
+{% block title %}About{% endblock %}
+
+{% block content %}
+<h2 class="text-center mb-4">About the Project</h2>
+
+<p>This system uses a trained machine learning model to predict the likelihood of breast cancer based on user input. It aims to assist in early detection and empower users with knowledge.</p>
+
+<ul>
+  <li>Built using Flask (Python backend) and Bootstrap (frontend)</li>
+  <li>Trained on the UCI Breast Cancer Wisconsin Dataset</li>
+  <li>Model: Random Forest Classifier with 95%+ accuracy</li>
+  <li>User-friendly web interface for real-time prediction</li>
+</ul>
+
+<hr class="my-5">
+
+<!-- Additional Informative Sections -->
+<h3 class="text-center mb-4">Explore More</h3>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+
+  <!-- Section 1: Why Early Detection Matters -->
+  <div class="col">
+    <div class="card h-100 bg-light text-dark shadow-sm">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgC8xApeyhIPNjnwGHQ7oxE-tTm32XgW01S1mLHOV1lVPGQjRnKk4yrxjnMLAk5AeRJQcJJaORE4QU1qQkqOBFQY1QiuJJsjtASjLltoXICO1_drWYHQemIQBZw85Z8h2ciKVhHyFXPSk0kzuAwhBJWXpAHA8Eyq9OtstqY6pZVjNdNH8XfoiY9JBLcLVzD/s2000/breast%20cancer%20survivor.png" class="card-img-top" alt="Early Detection">
+      <div class="card-body">
+        <h5 class="card-title">Why Early Detection Matters</h5>
+        <p class="card-text">Early detection improves treatment success and increases survival rates. Our model helps raise awareness for timely diagnosis.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2: Technologies Used -->
+  <div class="col">
+    <div class="card h-100 bg-light text-dark shadow-sm">
+      <img src="https://static.wixstatic.com/media/b2dfda_1c51fe6397954d13a39841c7f66f4a7d~mv2.png/v1/fill/w_480,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/b2dfda_1c51fe6397954d13a39841c7f66f4a7d~mv2.png" class="card-img-top" alt="Tech Stack">
+      <div class="card-body">
+        <h5 class="card-title">Technologies Used</h5>
+        <p class="card-text">The system leverages Python, Flask, HTML5, Bootstrap 5, and Scikit-learn for building a scalable, reliable, and responsive prediction tool.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3: About the Dataset -->
+  <div class="col">
+    <div class="card h-100 bg-light text-dark shadow-sm">
+      <img src="https://media.geeksforgeeks.org/wp-content/uploads/20190604114300/img-11.jpg" class="card-img-top" alt="Dataset">
+      <div class="card-body">
+        <h5 class="card-title">About the Dataset</h5>
+        <p class="card-text">The UCI Breast Cancer dataset contains key diagnostic features such as radius, texture, perimeter, and smoothness used in prediction.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Team / Contributors Section -->
+<div class="mt-5">
+  <h3 class="text-center mb-4">Project Developer</h3>
+  <div class="card text-dark shadow-sm p-3">
+    <div class="row g-0 align-items-center">
+      <div class="col-md-2 text-center">
+        <img src="https://cdn.pixabay.com/photo/2020/08/28/12/57/avatar-5527268_1280.png" class="img-fluid rounded-circle" style="height: 100px;" alt="Developer Avatar">
+      </div>
+      <div class="col-md-10">
+        <div class="card-body">
+          <h5 class="card-title mb-1">Surdeep Rathore</h5>
+          <p class="card-text">An undergraduate engineering student passionate about data science and healthcare applications of machine learning.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

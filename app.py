@@ -3,31 +3,45 @@ import numpy as np
 import pandas as pd
 import pickle
 
-# loading model
+# Load ML model
 model = pickle.load(open('models/model.pkl', 'rb'))
 
-# flask app
+# Initialize Flask app
 app = Flask(__name__)
 
-
+# Home Page
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('home.html')
 
-
-@app.route('/predict', methods=['POST'])
+# Predict Page
+@app.route('/predict', methods=['GET', 'POST'])
 def predict():
-    features = request.form['feature']
-    features = features.split(',')
-    np_features = np.asarray(features, dtype=np.float32)
+    message = []
+    if request.method == 'POST':
+        features = request.form['feature']
+        try:
+        # Expecting comma-separated values
+        features = features.split(',')
+        np_features = np.asarray(features, dtype=np.float32)
 
-    # prediction
-    pred = model.predict(np_features.reshape(1, -1))
-    message = ['Cancrouse' if pred[0] == 1 else 'Not Cancrouse']
-    # print(message[0])
-    return render_template('index.html', message=message)
+            # Predict
+            pred = model.predict(np_features.reshape(1, -1))
+            message.append('Cancrouse' if pred[0] == 1 else 'Not Cancrouse')
+        except:
+            message.append("Invalid input. Please enter comma-separated numbers.")
+    return render_template('predict.html', message=message)
 
+# About Page
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
+# Contact Page
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+# Run the app
 if __name__ == '__main__':
     app.run(debug=True)
-
