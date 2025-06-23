@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 import numpy as np
-import pandas as pd
 import pickle
 
 # Load ML model
@@ -21,13 +20,13 @@ def predict():
     if request.method == 'POST':
         features = request.form['feature']
         try:
-        # Expecting comma-separated values
-        features = features.split(',')
-        np_features = np.asarray(features, dtype=np.float32)
+            # Expecting comma-separated values
+            features = features.split(',')
+            np_features = np.asarray(features, dtype=np.float32)
 
             # Predict
             pred = model.predict(np_features.reshape(1, -1))
-            message.append('Cancrouse' if pred[0] == 1 else 'Not Cancrouse')
+            message.append('Cancerous' if pred[0] == 1 else 'Not Cancerous')
         except:
             message.append("Invalid input. Please enter comma-separated numbers.")
     return render_template('predict.html', message=message)
